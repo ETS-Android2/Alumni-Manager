@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Alumni Manager</string>
+    <string name="hint_name">Enter Full Name</string>
+    <string name="hint_username">Enter User Name </string>
+    <string name="hint_password">Enter Password </string>
+    <string name="hint_confirm_password">Confirm Password </string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="btn_link_to_register">Not a member? Sign up now.</string>
+    <string name="btn_link_to_login">Already a member? Sign In</string>
 </resources>
