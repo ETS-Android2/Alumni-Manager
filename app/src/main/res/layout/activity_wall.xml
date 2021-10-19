@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WallActivity">
-
-
     <EditText
-        android:id="@+id/editTextTextMultiLine2"
+        android:id="@+id/editPost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20px"
@@ -25,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_margin="15dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/editTextTextMultiLine2">
+        app:layout_constraintTop_toBottomOf="@id/editPost">
 
         <!--recycler view for displaying
             our Facebook posts-->
