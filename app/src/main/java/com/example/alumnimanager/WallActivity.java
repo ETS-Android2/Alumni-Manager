@@ -2,8 +2,10 @@ package com.example.alumnimanager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ public class WallActivity extends AppCompatActivity {
     private ArrayList<FacebookFeedModal> instaModalArrayList;
     private ArrayList<FacebookFeedModal> facebookFeedModalArrayList;
     private ProgressBar progressBar;
+    EditText editPost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,18 @@ public class WallActivity extends AppCompatActivity {
 
         // initializing our views.
         progressBar = findViewById(R.id.idLoadingPB);
+        editPost = findViewById(R.id.editPost);
+        editPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(WallActivity.this,
+                        WritePost.class);
+                //Intent is used to switch from one activity to another.
 
+                startActivity(i);
+
+            }
+        });
         // calling method to load
         // data in recycler view.
         getFacebookFeeds();
