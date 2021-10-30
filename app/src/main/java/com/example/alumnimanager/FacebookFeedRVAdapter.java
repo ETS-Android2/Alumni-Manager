@@ -1,4 +1,5 @@
 package com.example.alumnimanager;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,16 +7,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
+
 import de.hdodenhof.circleimageview.CircleImageView;
+
 public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAdapter.ViewHolder> {
 
     // arraylist for our facebook feeds.
     private ArrayList<FacebookFeedModal> facebookFeedModalArrayList;
     private Context context;
+
     // creating a constructor for our adapter class.
     public FacebookFeedRVAdapter(ArrayList<FacebookFeedModal> facebookFeedModalArrayList, Context context) {
         this.facebookFeedModalArrayList = facebookFeedModalArrayList;
@@ -24,16 +31,17 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FacebookFeedRVAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // inflating our layout for item of recycler view item.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.facebook_feed_rv_item, parent, false);
-        return new ViewHolder(view);
+        return new FacebookFeedRVAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FacebookFeedRVAdapter.ViewHolder holder, int position) {
         // getting data from array list and setting it to our modal class.
         FacebookFeedModal modal = facebookFeedModalArrayList.get(position);
+
         // setting data to each view of recyclerview item.
         Picasso.get().load(modal.getAuthorImage()).into(holder.authorIV);
         holder.authorNameTV.setText(modal.getAuthorName());
@@ -58,6 +66,7 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
         private ImageView postIV;
         private TextView likesTV, commentsTV;
         private LinearLayout shareLL;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             // initializing our variables
@@ -72,5 +81,4 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
         }
     }
 }
-
 
