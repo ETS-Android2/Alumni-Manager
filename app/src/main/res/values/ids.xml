@@ -2,4 +2,8 @@
 <resources>
     <item name="uname1" type="id" />
     <item name="pass3" type="id" />
+    <item name="fullName" type="id" />
+    <item name="uname" type="id" />
+    <item name="pass1" type="id" />
+    <item name="pass2" type="id" />
 </resources>
