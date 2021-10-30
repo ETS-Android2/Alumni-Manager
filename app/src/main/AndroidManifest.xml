@@ -21,7 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WallActivity"></activity>
         <activity android:name=".LoginMainActivity" />
         <activity android:name=".MainActivity" />
     </application>
