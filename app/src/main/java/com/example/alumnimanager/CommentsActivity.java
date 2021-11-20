@@ -19,6 +19,7 @@ public class CommentsActivity extends AppCompatActivity {
     EditText txtComment;
     Button btnComment;
     CommentHandler db;
+    Button backButton;
     ListView listComments;
     String postID;
 
@@ -31,6 +32,7 @@ public class CommentsActivity extends AppCompatActivity {
         txtComment = findViewById(R.id.txtComment);
         btnComment = findViewById(R.id.btnComment);
         listComments = findViewById(R.id.listComments);
+        backButton = findViewById(R.id.backButton);
         db = new CommentHandler(getApplicationContext());
         ArrayList<String> list = db.fetchAllComments(postID);
         ArrayAdapter<String> arr;
@@ -53,8 +55,19 @@ public class CommentsActivity extends AppCompatActivity {
 
                 i.putExtra("postID", postID);
                 getApplicationContext().startActivity(i);
+
+                backButton.performClick();
             }
         });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CommentsActivity.this,
+                        WritePost.class);
+                //Intent is used to switch from one activity to another.
+                startActivity(i);
 
+            }
+        });
     }
 }
