@@ -18,8 +18,6 @@ import com.example.alumnimanager.controller.PostHandler;
 
 import java.util.ArrayList;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAdapter.ViewHolder> {
 
     // arraylist for our facebook feeds.
@@ -87,7 +85,6 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
             // initializing our variables
             //  shareLL = itemView.findViewById(R.id.idLLShare);
             delButton = itemView.findViewById(R.id.delButton);
-            authorIV = itemView.findViewById(R.id.idCVAuthor);
             authorNameTV = itemView.findViewById(R.id.idTVAuthorName);
             timeTV = itemView.findViewById(R.id.idTVTime);
             descTV = itemView.findViewById(R.id.idTVDescription);
