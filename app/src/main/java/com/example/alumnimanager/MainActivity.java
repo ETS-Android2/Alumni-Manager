@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
+
 public class MainActivity extends AppCompatActivity {
     private MaterialButton btnRegister;
     MaterialTextView btnLinkToLogin;
