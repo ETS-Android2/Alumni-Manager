@@ -2,21 +2,31 @@ package com.example.alumnimanager;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.alumnimanager.controller.CommentHandler;
 import com.example.alumnimanager.controller.PostHandler;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAdapter.ViewHolder> {
 
@@ -32,14 +42,14 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FacebookFeedRVAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // inflating our layout for item of recycler view item.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.facebook_feed_rv_item, parent, false);
-        return new ViewHolder(view);
+        return new FacebookFeedRVAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FacebookFeedRVAdapter.ViewHolder holder, int position) {
         // getting data from array list and setting it to our modal class.
         FacebookFeedModal modal = facebookFeedModalArrayList.get(position);
 
@@ -68,7 +78,7 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
         return facebookFeedModalArrayList.size();
     }
 
-    public class ViewHolder<CircleImageView> extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         // creating variables for our views
         // of recycler view items.
         ImageView imgComment;
@@ -85,6 +95,7 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
             // initializing our variables
             //  shareLL = itemView.findViewById(R.id.idLLShare);
             delButton = itemView.findViewById(R.id.delButton);
+            authorIV = itemView.findViewById(R.id.idCVAuthor);
             authorNameTV = itemView.findViewById(R.id.idTVAuthorName);
             timeTV = itemView.findViewById(R.id.idTVTime);
             descTV = itemView.findViewById(R.id.idTVDescription);
@@ -102,7 +113,7 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
                 @Override
                 public void onClick(View v) {
                     //Toast.makeText(context.getApplicationContext(), postID.getText().toString().trim(), Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(context.getApplicationContext(), com.example.alumnimanager.CommentsActivity.class);
+                    Intent i = new Intent(context.getApplicationContext(), CommentsActivity.class);
                     i.putExtra("commentID", postID.getText().toString().trim());
                     context.startActivity(i);
                 }
@@ -146,7 +157,7 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
                 @Override
                 public void onClick(View v) {
                     //Toast.makeText(context.getApplicationContext(), postID.getText().toString().trim(), Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(context.getApplicationContext(), com.example.alumnimanager.CommentsActivity.class);
+                    Intent i = new Intent(context.getApplicationContext(), CommentsActivity.class);
                     i.putExtra("postID", postID.getText().toString().trim());
                     context.startActivity(i);
                 }
