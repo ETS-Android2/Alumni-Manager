@@ -1,7 +1,5 @@
 package com.example.alumnimanager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,19 +7,12 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.alumnimanager.controller.PostHandler;
 
 import java.util.ArrayList;
 
@@ -35,11 +26,13 @@ public class WallActivity extends AppCompatActivity {
     private ArrayList<FacebookFeedModal> facebookFeedModalArrayList;
     private ProgressBar progressBar;
     EditText editPost;
-
+    PostHandler db;
+    //WallPostDBHandler db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wall);
+        db = new PostHandler(getApplicationContext());
 
         // initializing our views.
         progressBar = findViewById(R.id.idLoadingPB);
@@ -48,21 +41,44 @@ public class WallActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(WallActivity.this,
-                        WritePost.class);
+                        com.example.alumnimanager.WritePost.class);
                 //Intent is used to switch from one activity to another.
 
                 startActivity(i);
 
             }
         });
+
+
+
+        Toast.makeText(getApplicationContext(),"length: "+db.fetchAllPosts().size(),Toast.LENGTH_SHORT).show();
+//        System.out.println("len: "+db.fetchAllPosts().size());
+
         // calling method to load
         // data in recycler view.
         getFacebookFeeds();
     }
 
     private void getFacebookFeeds() {
-        facebookFeedModalArrayList = new ArrayList<>();
+        //facebookFeedModalArrayList = new ArrayList<>();
+        facebookFeedModalArrayList= db.fetchAllPosts();
 
+        com.example.alumnimanager.FacebookFeedRVAdapter adapter = new com.example.alumnimanager.FacebookFeedRVAdapter(facebookFeedModalArrayList, WallActivity.this);
+        RecyclerView instRV = findViewById(R.id.idRVInstaFeeds);
+
+        // below line is for setting linear layout manager to our recycler view.
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(WallActivity.this, RecyclerView.VERTICAL, false);
+
+        // below line is to set layout
+        // manager to our recycler view.
+        instRV.setLayoutManager(linearLayoutManager);
+
+        // below line is to set adapter
+        // to our recycler view.
+        instRV.setAdapter(adapter);
+        progressBar.setVisibility(View.GONE);
+
+/*
         // below line is use to initialize the variable for our request queue.
         mRequestQueue = Volley.newRequestQueue(WallActivity.this);
 
@@ -129,5 +145,6 @@ public class WallActivity extends AppCompatActivity {
             }
         });
         mRequestQueue.add(jsonObjectRequest);
+        */
     }
 }
