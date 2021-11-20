@@ -15,7 +15,6 @@ import com.example.alumnimanager.controller.CommentHandler;
 import java.util.ArrayList;
 
 public class CommentsActivity extends AppCompatActivity {
-    private static final android.R.attr R = ;
     EditText txtComment;
     Button btnComment;
     CommentHandler db;
