@@ -63,7 +63,7 @@ public class CommentsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(CommentsActivity.this,
-                        WritePost.class);
+                        WallActivity.class);
                 //Intent is used to switch from one activity to another.
                 startActivity(i);
 
