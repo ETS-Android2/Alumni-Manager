@@ -24,8 +24,29 @@ The student can log in here. If they forget their password, they can create a ne
  We can write a post here.
  Inserted back button and post button. This is linked with the event feed page that navigates to the this page.
  
- ### Event feed page:
+ ### Event feedback page:
  Here we can post the event.
  And added the like, share, comment. It also has the write post which we can create a event and post it.
  
+ #### Registration Page:
+  [RegisterPage](images/RegisterPage.jpeg)
  
+ #### Login Page : 
+  [LoginPage](images/LoginPage.jpeg)
+ 
+ #### Write Post : 
+ 
+ [WritingPost](images/WritingPost.jpeg)
+ [Displayingthepost](images/DisplayPost.jpeg)
+ 
+ #### Event Feedback page: 
+ [Replyingtothepost](images/Replyingtothepost.jpeg)
+ 
+ ### Supported Devices:
+ Supports Android Devices having OS ranging from Android 5.0(lollipop) to Android 11.0(R)
+ 
+ ### Apk file: 
+ 
+ 
+### Sequence information:
+[Sequence information](SequenceDiagram.jpeg)
