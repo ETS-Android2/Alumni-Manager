@@ -34,12 +34,12 @@ The student can log in here. If they forget their password, they can create a ne
  
  #### Login Page : 
  
- ![LoginPage](images/LoginPage)
+ [LoginPage](images/LoginPage)
  
  #### Write Post : 
  
- ![WritingPost](images/WritingPost)
- ![Displayingthepost](images/DisplayPost)
+ [WritingPost](images/WritingPost)
+ [Displayingthepost](images/DisplayPost)
  
  #### Event Feedback page: 
- ![Replyingtothepost](images/Replyingtothepost)
+ [Replyingtothepost](images/Replyingtothepost)
