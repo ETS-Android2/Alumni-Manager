@@ -29,12 +29,10 @@ The student can log in here. If they forget their password, they can create a ne
  And added the like, share, comment. It also has the write post which we can create a event and post it.
  
  #### Registration Page:
- 
- ![RegisterPage](images/RegisterPage)
+  [RegisterPage](images/RegisterPage)
  
  #### Login Page : 
- 
- [LoginPage](images/LoginPage)
+  [LoginPage](images/LoginPage)
  
  #### Write Post : 
  
