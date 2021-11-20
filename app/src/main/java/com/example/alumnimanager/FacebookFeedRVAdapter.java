@@ -1,3 +1,5 @@
+package com.example.alumnimanager;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -11,8 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.alumnimanager.FacebookFeedModal;
-import com.example.alumnimanager.WallActivity;
 import com.example.alumnimanager.controller.CommentHandler;
 import com.example.alumnimanager.controller.PostHandler;
 
@@ -159,3 +159,4 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
 
     }
 }
+
