@@ -1,4 +1,4 @@
-package com.example.alumnimanager;
+package com.example.alumnimanager.modal;
 
 public class User {
     String uname;
