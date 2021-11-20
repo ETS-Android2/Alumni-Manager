@@ -1,6 +1,7 @@
 ## Group 06:
 ## Alumini Event Management Portal Android App
-### Team Members: Vyshnavi Tadipaneni,Priyanka Thambabathula,Bala Shankar Malladi,Narsing Rao Nikitha Madhari
+### Team Members: Narsing Rao Nikitha Madhari,Priyanka Thambabathula,Bala Shankar Malladi, Vyshnavi Tadipaneni
+
 ### Abstract:
 This project is aimed at develop a alumni of the college, which is of important to a college. Anyone from same university can access the Search Engine to know about any Alumni of that college but can’t able to add. Alumni can only update the database when they are in the college. The project is to be completed in two phases. The initial phase will be the creation of a simple system that will be used to capture data from current students. The second phase of development will extend the functionality of the system to allow past alumni to register. In simple words, we are creating a social network for alumni’s and the students who are pursuing the course in current university. This app is an Internet based application that can be accessed throughout the World.
 ### Introduction:
