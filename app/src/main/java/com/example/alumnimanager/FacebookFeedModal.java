@@ -4,7 +4,8 @@ public class FacebookFeedModal {
     // variables for storing our author image,
     // author name, postDate,postDescription,
     // post image,post likes,post comments.
-    private String authorImage;
+    private String pId;
+    private String uName;
     private String authorName;
     private String postDate;
     private String postDescription;
@@ -12,13 +13,21 @@ public class FacebookFeedModal {
     private String postLikes;
     private String postComments;
 
-    // creating getter and setter methods.
-    public String getAuthorImage() {
-        return authorImage;
+    public String getpId() {
+        return pId;
     }
 
-    public void setAuthorImage(String authorImage) {
-        this.authorImage = authorImage;
+    public void setpId(String pId) {
+        this.pId = pId;
+    }
+
+    // creating getter and setter methods.
+    public String getuName() {
+        return uName;
+    }
+
+    public void setuName(String authorImage) {
+        this.uName = authorImage;
     }
 
     public String getAuthorName() {
@@ -70,10 +79,11 @@ public class FacebookFeedModal {
     }
 
     // creating a constructor class.
-    public FacebookFeedModal(String authorImage, String authorName, String postDate,
+    public FacebookFeedModal(String pid, String authorImage, String authorName, String postDate,
                              String postDescription, String postIV, String postLikes,
                              String postComments) {
-        this.authorImage = authorImage;
+        this.pId = pid;
+        this.uName = authorImage;
         this.authorName = authorName;
         this.postDate = postDate;
         this.postDescription = postDescription;
@@ -81,5 +91,16 @@ public class FacebookFeedModal {
         this.postLikes = postLikes;
         this.postComments = postComments;
     }
-}
 
+    public FacebookFeedModal(String pid, String uName, String FName, String postDate,
+                             String postDescription, String postLikes,
+                             String postComments) {
+        this.pId = pid;
+        this.uName = uName;
+        this.authorName = FName;
+        this.postDate = postDate;
+        this.postDescription = postDescription;
+        this.postLikes = postLikes;
+        this.postComments = postComments;
+    }
+}
