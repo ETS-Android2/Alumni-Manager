@@ -20,10 +20,12 @@ If the student does not have an account, they can establish one here, or we can 
 ### Login page: 
 The student can log in here. If they forget their password, they can create a new one to log in.
 
-### Event feed page:
- Here we can post the event.
- And added the like, share, comment. It also has the write post which we can create a event and post it.
-
 ### Write post page:
  We can write a post here.
  Inserted back button and post button. This is linked with the event feed page that navigates to the this page.
+ 
+ ### Event feed page:
+ Here we can post the event.
+ And added the like, share, comment. It also has the write post which we can create a event and post it.
+ 
+ 
