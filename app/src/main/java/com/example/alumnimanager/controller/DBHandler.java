@@ -1,4 +1,4 @@
-package com.example.alumnimanager;
+package com.example.alumnimanager.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
+import com.example.alumnimanager.modal.User;
 
 
 public class DBHandler extends SQLiteOpenHelper {
@@ -44,14 +44,39 @@ public class DBHandler extends SQLiteOpenHelper {
         // setting our column names
         // along with their data types.
         String query = "CREATE TABLE " + TABLE_NAME + " ("
-                + UNAME_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + FNAME_COL + " TEXT,"
-                + pass1 + " TEXT,"
+                + UNAME_COL + " TEXT PRIMARY KEY, "
+                + FNAME_COL + " TEXT, "
+                + pass1 + " TEXT, "
                 + pass2 + " TEXT)";
 
         // at last we are calling a exec sql
         // method to execute above sql query
         db.execSQL(query);
+        System.out.println(TABLE_NAME + " created");
+
+        String CREATE_TABLE_WALLPOST =
+                "CREATE TABLE " + com.example.alumnimanager.controller.PostHandler.WALLPOST_TBL + "("
+                        + com.example.alumnimanager.controller.PostHandler.WID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        + com.example.alumnimanager.controller.PostHandler.UNAME_COL + " TEXT, "
+                        + com.example.alumnimanager.controller.PostHandler.FNAME_COL + " TEXT, "
+                        + com.example.alumnimanager.controller.PostHandler.CONTENT_COL + " TEXT, "
+                        + com.example.alumnimanager.controller.PostHandler.LIKE_COL + " TEXT"
+                        + ")";
+
+        db.execSQL(CREATE_TABLE_WALLPOST);
+        System.out.println(com.example.alumnimanager.controller.PostHandler.WALLPOST_TBL + " created");
+
+        String query1 = "CREATE TABLE " + com.example.alumnimanager.controller.CommentHandler.COMMENTS_TBL + " ("
+                + com.example.alumnimanager.controller.CommentHandler.CID_COL + " TEXT PRIMARY KEY, "
+                + com.example.alumnimanager.controller.PostHandler.WID_COL + " TEXT, "
+                + com.example.alumnimanager.controller.CommentHandler.CONTENT_COL + " TEXT, "
+                + com.example.alumnimanager.controller.CommentHandler.DATE_COL + " TEXT)";
+
+        // at last we are calling a exec sql
+        // method to execute above sql query
+        db.execSQL(query1);
+        System.out.println(com.example.alumnimanager.controller.CommentHandler.COMMENTS_TBL + " created");
+
     }
 
     public User getUserFromUid(String uid) {
@@ -63,23 +88,21 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor cursorCourses = db.rawQuery("SELECT * FROM " + TABLE_NAME + " where uname='" + uid + "'", null);
 
 
-        User u=null;
+        User u = null;
 
         if (cursorCourses.moveToFirst()) {
-            do {
-                // on below line we are adding the data from cursor to our array list.
-                u = new User(cursorCourses.getString(1),
-
-                        cursorCourses.getString(2),
-                        cursorCourses.getString(3));
-            } while (cursorCourses.moveToNext());
-            // moving our cursor to next.
+            // on below line we are adding the data from cursor to our array list.
+            System.out.println("test: " + cursorCourses.getString(2));
+            u = new User(cursorCourses.getString(0),
+                    cursorCourses.getString(1),
+                    cursorCourses.getString(2));
         }
         // at last closing our cursor
         // and returning our array list.
         cursorCourses.close();
         return u;
     }
+
 
     // this metzhod is use to add new course to our sqlite database.
     public void addNewCourse(String uname, String fname, String pass1, String pass2) {
@@ -97,8 +120,8 @@ public class DBHandler extends SQLiteOpenHelper {
         // along with its key and value pair.
         values.put(UNAME_COL, uname);
         values.put(FNAME_COL, fname);
-        values.put(pass1, pass1);
-        values.put(pass2, pass2);
+        values.put("pass1", pass1);
+        values.put("pass2", pass2);
 
         // after adding all values we are passing
         // content values to our table.
