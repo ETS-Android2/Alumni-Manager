@@ -1,5 +1,7 @@
 package com.example.alumnimanager;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,14 +9,24 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.alumnimanager.controller.PostHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class WallActivity<RequestQueue> extends AppCompatActivity {
+public class WallActivity extends AppCompatActivity {
 
     // creating variables for our requestqueue,
     // array list, progressbar, edittext,
@@ -39,7 +51,7 @@ public class WallActivity<RequestQueue> extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(WallActivity.this,
-                        com.example.alumnimanager.WritePost.class);
+                        WritePost.class);
                 //Intent is used to switch from one activity to another.
 
                 startActivity(i);
@@ -61,7 +73,7 @@ public class WallActivity<RequestQueue> extends AppCompatActivity {
         //facebookFeedModalArrayList = new ArrayList<>();
         facebookFeedModalArrayList= db.fetchAllPosts();
 
-        com.example.alumnimanager.FacebookFeedRVAdapter adapter = new com.example.alumnimanager.FacebookFeedRVAdapter(facebookFeedModalArrayList, WallActivity.this);
+        FacebookFeedRVAdapter adapter = new FacebookFeedRVAdapter(facebookFeedModalArrayList, WallActivity.this);
         RecyclerView instRV = findViewById(R.id.idRVInstaFeeds);
 
         // below line is for setting linear layout manager to our recycler view.
