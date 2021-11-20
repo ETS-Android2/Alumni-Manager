@@ -10,13 +10,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.android.volley.RequestQueue;
 import com.example.alumnimanager.controller.PostHandler;
 
 import java.util.ArrayList;
 
-public class WallActivity extends AppCompatActivity {
+public class WallActivity<RequestQueue> extends AppCompatActivity {
 
     // creating variables for our requestqueue,
     // array list, progressbar, edittext,

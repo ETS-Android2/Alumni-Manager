@@ -70,7 +70,7 @@ public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAd
         return facebookFeedModalArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder<CircleImageView> extends RecyclerView.ViewHolder {
         // creating variables for our views
         // of recycler view items.
         ImageView imgComment;
