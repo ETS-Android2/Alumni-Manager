@@ -5,14 +5,14 @@ import java.util.Date;
 
 public class Utils {
 
-    private static User user;
+    private static com.example.alumnimanager.modal.User user;
     public static String PREF_NAME = "ALUMINI_PREF";
 
-    public static void setUser(User u) {
+    public static void setUser(com.example.alumnimanager.modal.User u) {
         user = u;
     }
 
-    public static User getUser() {
+    public static com.example.alumnimanager.modal.User getUser() {
         return user;
     }
 

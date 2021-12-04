@@ -41,7 +41,7 @@ public class CommentHandler extends SQLiteOpenHelper {
 
     public void delete(String pid) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(COMMENTS_TBL, com.example.alumnimanager.controller.PostHandler.WID_COL + "=?", new String[]{String.valueOf(pid)});
+        db.delete(COMMENTS_TBL, PostHandler.WID_COL + "=?", new String[]{String.valueOf(pid)});
 
         db.close();
 
@@ -63,7 +63,7 @@ public class CommentHandler extends SQLiteOpenHelper {
             // on below line we are passing all values
             // along with its key and value pair.
             values.put(CID_COL, s);
-            values.put(com.example.alumnimanager.controller.PostHandler.WID_COL, cid);
+            values.put(PostHandler.WID_COL, cid);
             values.put(CONTENT_COL, content);
             values.put(DATE_COL, s);
 
@@ -85,7 +85,28 @@ public class CommentHandler extends SQLiteOpenHelper {
     public ArrayList<String> fetchAllComments(String pid) {
         ArrayList<String> comList = new ArrayList();
         SQLiteDatabase db = this.getReadableDatabase();
-        String query="SELECT * FROM " + COMMENTS_TBL + " where " + com.example.alumnimanager.controller.PostHandler.WID_COL + "='" + pid + "'";
+        String query="SELECT * FROM " + COMMENTS_TBL + " where " + PostHandler.WID_COL + "='" + pid + "'";
+        // on below line we are creating a cursor with query to read data from database.
+        System.out.println(query);
+
+        Cursor cursorCourses = db.rawQuery(query, null);
+        User u = null;
+        for (cursorCourses.moveToFirst(); !cursorCourses.isAfterLast(); cursorCourses.moveToNext()) {
+            String com = cursorCourses.getString(2);
+            System.out.println(com);
+            comList.add(com);
+        }
+        // at last closing our cursor
+        // and returning our array list.
+        cursorCourses.close();
+        //Toast.makeText(context.getApplicationContext(),comList.size(),Toast.LENGTH_SHORT).show();
+        return comList;
+    }
+
+    public ArrayList<String> fetchAllCommentsDesc(String pid) {
+        ArrayList<String> comList = new ArrayList();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query="SELECT * FROM " + COMMENTS_TBL + " where " + PostHandler.WID_COL + "='" + pid + "' order by cid desc";
         // on below line we are creating a cursor with query to read data from database.
         System.out.println(query);
 
@@ -104,12 +125,11 @@ public class CommentHandler extends SQLiteOpenHelper {
     }
 
 
-
     public int countComments(String pid) {
         int i=0;
         System.out.println("pid: "+pid);
         SQLiteDatabase db = this.getReadableDatabase();
-        String query="SELECT count(*) FROM " + COMMENTS_TBL + " where " + com.example.alumnimanager.controller.PostHandler.WID_COL + "='" + pid + "'";
+        String query="SELECT count(*) FROM " + COMMENTS_TBL + " where " + PostHandler.WID_COL + "='" + pid + "'";
         System.out.println(query);
         // on below line we are creating a cursor with query to read data from database.
         Cursor cursorCourses = db.rawQuery(query, null);

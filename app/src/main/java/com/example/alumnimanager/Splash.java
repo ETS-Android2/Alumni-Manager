@@ -1,12 +1,12 @@
 package com.example.alumnimanager;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.alumnimanager.modal.Utils;
 
@@ -41,7 +41,7 @@ public class Splash extends AppCompatActivity {
 
                 } else {
                     Intent i = new Intent(Splash.this,
-                            com.example.alumnimanager.LoginMainActivity.class);
+                            LoginMainActivity.class);
                     //Intent is used to switch from one activity to another.
 
                     startActivity(i);

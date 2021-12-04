@@ -1,11 +1,16 @@
 <resources>
-    <string name="app_name">AlumniManager</string>
+    <string name="app_name">AliuminiProject</string>
     <string name="hint_name">Enter Full Name</string>
     <string name="hint_username">Enter User Name </string>
     <string name="hint_password">Enter Password </string>
     <string name="hint_confirm_password">Confirm Password </string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="DeletePost">Delete Post</string>
     <string name="btn_link_to_register">Not a member? Sign up now.</string>
     <string name="btn_link_to_login">Already a member? Sign In</string>
+    <string name="question_title">Delete Post</string>
+    <string name="question_message">Are You Sure?????</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>

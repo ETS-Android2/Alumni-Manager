@@ -1,5 +1,7 @@
 package com.example.alumnimanager;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,11 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.alumnimanager.controller.PostHandler;
 import com.example.alumnimanager.modal.Utils;
-
 
 public class WritePost extends AppCompatActivity {
     Button backButton, post;
@@ -56,7 +55,7 @@ public class WritePost extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(WritePost.this,
-                        WallActivity.class);
+                        com.example.alumnimanager.WallActivity.class);
                 //Intent is used to switch from one activity to another.
                 startActivity(i);
 

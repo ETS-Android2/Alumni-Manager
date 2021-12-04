@@ -2,13 +2,20 @@ package com.example.alumnimanager;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,37 +24,37 @@ import com.example.alumnimanager.controller.CommentHandler;
 import com.example.alumnimanager.controller.PostHandler;
 
 import java.util.ArrayList;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FacebookFeedRVAdapter extends RecyclerView.Adapter<FacebookFeedRVAdapter.ViewHolder> {
 
     // arraylist for our facebook feeds.
-    private ArrayList<FacebookFeedModal> facebookFeedModalArrayList;
+    private ArrayList<com.example.alumnimanager.FacebookFeedModal> facebookFeedModalArrayList;
     private Context context;
 
     // creating a constructor for our adapter class.
-    public FacebookFeedRVAdapter(ArrayList<FacebookFeedModal> facebookFeedModalArrayList, Context context) {
+    public FacebookFeedRVAdapter(ArrayList<com.example.alumnimanager.FacebookFeedModal> facebookFeedModalArrayList, Context context) {
         this.facebookFeedModalArrayList = facebookFeedModalArrayList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FacebookFeedRVAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // inflating our layout for item of recycler view item.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.facebook_feed_rv_item, parent, false);
-        return new ViewHolder(view);
+        return new FacebookFeedRVAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FacebookFeedRVAdapter.ViewHolder holder, int position) {
         // getting data from array list and setting it to our modal class.
-        FacebookFeedModal modal = facebookFeedModalArrayList.get(position);
+        com.example.alumnimanager.FacebookFeedModal modal = facebookFeedModalArrayList.get(position);
 
         // setting data to each view of recyclerview item.
         //  Picasso.get().load(modal.getAuthorImage()).into(holder.authorIV);
         holder.postID.setText(modal.getpId());
+
         holder.authorNameTV.setText(modal.getAuthorName());
         holder.timeTV.setText(modal.getPostDate());
         holder.descTV.setText(modal.getPostDescription());

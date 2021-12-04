@@ -1,16 +1,17 @@
 package com.example.alumnimanager;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.alumnimanager.controller.DBHandler;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
-import com.example.alumnimanager.controller.DBHandler;
+
 
 public class MainActivity extends AppCompatActivity {
     private MaterialButton btnRegister;
@@ -38,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 String pass_1 = pass1.getText().toString().trim();
                 String pass_2 = pass2.getText().toString().trim();
                 dbHandler.addNewCourse(u_name, f_name, pass_1, pass_2);
-                System.out.println(u_name);
-                System.out.println(pass_1);
-
 
                 // after adding the data we are displaying a toast message.
                 Toast.makeText(MainActivity.this, "User has been added.", Toast.LENGTH_SHORT).show();

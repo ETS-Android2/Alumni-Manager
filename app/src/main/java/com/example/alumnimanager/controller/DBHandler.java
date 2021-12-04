@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.alumnimanager.modal.User;
 
-
 public class DBHandler extends SQLiteOpenHelper {
     // creating a constant variables for our database.
     // below variable is for our database name.
@@ -55,27 +54,38 @@ public class DBHandler extends SQLiteOpenHelper {
         System.out.println(TABLE_NAME + " created");
 
         String CREATE_TABLE_WALLPOST =
-                "CREATE TABLE " + com.example.alumnimanager.controller.PostHandler.WALLPOST_TBL + "("
-                        + com.example.alumnimanager.controller.PostHandler.WID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                        + com.example.alumnimanager.controller.PostHandler.UNAME_COL + " TEXT, "
-                        + com.example.alumnimanager.controller.PostHandler.FNAME_COL + " TEXT, "
-                        + com.example.alumnimanager.controller.PostHandler.CONTENT_COL + " TEXT, "
-                        + com.example.alumnimanager.controller.PostHandler.LIKE_COL + " TEXT"
+                "CREATE TABLE " + PostHandler.WALLPOST_TBL + "("
+                        + PostHandler.WID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        + PostHandler.UNAME_COL + " TEXT, "
+                        + PostHandler.FNAME_COL + " TEXT, "
+                        + PostHandler.CONTENT_COL + " TEXT, "
+                        + PostHandler.LIKE_COL + " TEXT"
                         + ")";
 
         db.execSQL(CREATE_TABLE_WALLPOST);
-        System.out.println(com.example.alumnimanager.controller.PostHandler.WALLPOST_TBL + " created");
+        System.out.println(PostHandler.WALLPOST_TBL + " created");
 
-        String query1 = "CREATE TABLE " + com.example.alumnimanager.controller.CommentHandler.COMMENTS_TBL + " ("
-                + com.example.alumnimanager.controller.CommentHandler.CID_COL + " TEXT PRIMARY KEY, "
-                + com.example.alumnimanager.controller.PostHandler.WID_COL + " TEXT, "
-                + com.example.alumnimanager.controller.CommentHandler.CONTENT_COL + " TEXT, "
-                + com.example.alumnimanager.controller.CommentHandler.DATE_COL + " TEXT)";
+        String query1 = "CREATE TABLE " + CommentHandler.COMMENTS_TBL + " ("
+                + CommentHandler.CID_COL + " TEXT PRIMARY KEY, "
+                + PostHandler.WID_COL + " TEXT, "
+                + CommentHandler.CONTENT_COL + " TEXT, "
+                + CommentHandler.DATE_COL + " TEXT)";
 
         // at last we are calling a exec sql
         // method to execute above sql query
         db.execSQL(query1);
-        System.out.println(com.example.alumnimanager.controller.CommentHandler.COMMENTS_TBL + " created");
+        System.out.println(CommentHandler.COMMENTS_TBL + " created");
+
+        String query2 = "CREATE TABLE " + ChatHandler.TABLE_NAME + " ("
+                + ChatHandler.CID_COL + " INTEGER PRIMARY KEY, "
+                + ChatHandler.MSG_COL + " TEXT,"
+                + ChatHandler.fid_COL + " TEXT)";
+
+        // at last we are calling a exec sql
+        // method to execute above sql query
+        db.execSQL(query2);
+        System.out.println(CommentHandler.COMMENTS_TBL + " created");
+
 
     }
 
