@@ -36,6 +36,9 @@ The student can log in here. If they forget their password, they can create a ne
  
  #### Login Page : 
   [LoginPage](images/LoginPage.jpeg)
+  
+  ### Dashboard page:
+  [DashboardScreen](images/dashboard.jpeg)
  
  #### Write Post : 
  
