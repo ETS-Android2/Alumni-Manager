@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AliuminiProject</string>
+    <string name="app_name">AlumniProject</string>
     <string name="hint_name">Enter Full Name</string>
     <string name="hint_username">Enter User Name </string>
     <string name="hint_password">Enter Password </string>
