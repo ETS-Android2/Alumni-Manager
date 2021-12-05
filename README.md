@@ -29,7 +29,7 @@ The student can log in here. If they forget their password, they can create a ne
  And added the like, share, comment. It also has the write post which we can create a event and post it.
  
  ### Launch Screen:
- [launchScreen](images/Screenshot(119).png)
+ [launchScreen](images/LaunchScreen.png)
  
  #### Registration Page:
   [RegisterPage](images/RegisterPage.jpeg)
@@ -47,6 +47,9 @@ The student can log in here. If they forget their password, they can create a ne
  
  #### Event Feedback page: 
  [Replyingtothepost](images/Replyingtothepost.jpeg)
+
+ #### DeletePost:
+ [DeletePost](images/DeletePost.jpeg)
  
  ### Chat page:
  [ChatScreen](images/chat.jpeg)
