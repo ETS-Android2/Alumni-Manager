@@ -58,7 +58,7 @@ The student can log in here. If they forget their password, they can create a ne
  Supports Android Devices having OS ranging from Android 5.0(lollipop) to Android 11.0(R)
  
  ### Apk file: 
- 
+ [Download APK File](app-debug.apk)
  
 ### Sequence information:
 [Sequence information](SequenceDiagram.jpeg)
