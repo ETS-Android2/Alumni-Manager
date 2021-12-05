@@ -1,6 +1,6 @@
 ## Group 06:
 
-## Alumini Event Management Portal Android App
+## Alumini Event Management System
 
 ### Team Members: Narsing Rao Nikitha Madhari,Priyanka Thambabathula,Bala Shankar Malladi, Vyshnavi Tadipaneni
 
